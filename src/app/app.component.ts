@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular_concept';
+  inputval:string ="hello"
+  router:Router =inject(Router)
+  btnClicked(inputEl:HTMLInputElement){
+       this.inputval= inputEl.value
+  }
+  redirectTo(){
+    // this.router.navigate(['Home'])
+    this.router.navigateByUrl("Home")
+
+  }
 }

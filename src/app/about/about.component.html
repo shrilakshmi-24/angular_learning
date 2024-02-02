@@ -1,0 +1,10 @@
+
+
+<h1>Degree C To F converter</h1>
+
+<label for="temperature">Enter value in degree Celsius</label><br>
+<input type="text" name="temperature" placeholder="Temp in C" [(ngModel)]="value" #temperature>
+
+<button (click)="convert()">Convert</button>
+
+<h4>The F value is {{ convertedValue }}</h4>

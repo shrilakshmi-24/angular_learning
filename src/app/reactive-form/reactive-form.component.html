@@ -1,0 +1,48 @@
+<div class="container">
+    <form action="#" method="post" [formGroup]="reactiveForm" (ngSubmit)="submitForm()">
+        <h2>Extended Form</h2>
+
+        <label for="firstname">firstname:</label>
+        <input type="text" id="firstname" name="firstname" required formControlName="firstname">
+        <small *ngIf="reactiveForm.get('firstname').invalid && reactiveForm.get('firstname').touched">*First name is required</small>
+
+        <label for="lastname">lastname:</label>
+        <input type="text" id="lastname" name="lastname" required formControlName="lastname">
+        <small *ngIf="reactiveForm.get('lastname').invalid && reactiveForm.get('lastname').touched">*Last name is required</small>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required formControlName="email">
+        <small *ngIf="reactiveForm.get('email').invalid && reactiveForm.get('email').touched" >* Email is required</small>
+
+
+        <button type="button" (click)="generateUsername()">generate username</button>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required formControlName="password">
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required formControlName="address">
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required formControlName="phone">
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required formControlName="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        <div class="skill" *ngFor="let control of reactiveForm.get('skill')['controls'];let i=index">
+            <input type="text" placeholder="add skilss..."  formControlName="i">
+            <button type="button" class="delete--skill--button" (click)="deleteSkill(i)">Delete</button>
+        </div>
+            <button type="button" class="add--skill--button" (click)="addSkill()">+Add</button>
+        
+        
+        <br><br>
+        <button type="submit" [disabled]="reactiveForm.invalid" class="submit">Submit</button>
+    </form>
+  </div>

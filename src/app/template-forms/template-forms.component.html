@@ -1,0 +1,61 @@
+<div class="container">
+    <form id="registrationForm" (ngSubmit)="onFormSubmitted()" #submitForm="ngForm">
+        <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required ngModel #fname="ngModel">
+            <div>
+                <small *ngIf="fname.touched && fname.invalid">*Firstname is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required ngModel #lname="ngModel">
+            <div>
+                <small *ngIf="lname.touched && lname.invalid">*Lastname is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required ngModel >
+            
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required ngModel #email="ngModel">
+            <div>
+                <small *ngIf="email.touched && email.invalid">*Firstname is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <label><input type="radio" name="gender" value="male" ngModel> Male</label>
+            <label><input type="radio" name="gender" value="female" ngModel> Female</label>
+        </div>
+        <div class="address" ngModelGroup #addr="ngModelGroup">
+            <div class="form-group">
+            <label for="country">Country:</label>
+            <select id="country" name="country" required ngModel>
+                <option value="usa">USA</option>
+                <option value="canada">Canada</option>
+                <!-- Add more countries as needed -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required ngModel>
+        </div>
+        <div class="form-group">
+            <label for="region">Region:</label>
+            <input type="text" id="region" name="region" required ngModel>
+        </div>
+        <div class="form-group">
+            <label for="postalCode">Postal Code:</label>
+            <input type="text" id="postalCode" name="postalCode" required ngModel>
+        </div>
+        </div>
+        
+        <div class="form-group">
+            <button type="submit" value="submit" class="button">Submit</button>
+        </div>
+    </form>
+</div>
