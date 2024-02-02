@@ -1,7 +1,5 @@
-
-
 import { Pipe, PipeTransform } from "@angular/core";
-
+//percentage pipe
 @Pipe({
     name:'percentage'
 })
@@ -12,8 +10,7 @@ export class PercentagePipe implements PipeTransform{
     }
 }
 
-
-
+//temperature pipe
 @Pipe({
     name:'temp'
 })
